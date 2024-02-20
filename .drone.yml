@@ -3,14 +3,18 @@ name: delivery
 type: docker
 
 steps:
-- name: docker
-  image: plugins/docker
-  settings:
-    username: 
-      from_secret: DOCKER_USERNAME
-    password:
-      from_secret: DOCKER_PASSWORD
-    dockerfile: web/Dockerfile
-    repo: boulundeasv/my-web-app
-    tags:
-    - test
+  - name: docker
+    image: plugins/docker
+    settings:
+      username: 
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      dockerfile: web/Dockerfile
+      repo: boulundeasv/my-web-app
+      tags:
+      - test
+  - name: trigger update
+    image: alpine
+    commands:
+      - curl -H "Authorization: Bearer mytoken" localhost:8080/v1/update
