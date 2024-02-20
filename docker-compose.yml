@@ -1,9 +1,6 @@
 services:
   my-web-app:
-    image: boulundeasv/my-web-app
-    build:
-      context: .
-      dockerfile: web/Dockerfile
+    image: boulundeasv/my-web-app:test
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     ports:
