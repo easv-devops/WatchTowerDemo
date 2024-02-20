@@ -7,7 +7,7 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     ports:
-      - 9090:80
+      - 7778:80
   watchtower:
     image: containrrr/watchtower
     environment:
@@ -17,4 +17,4 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - 8080:8080
+      - 7777:8080
