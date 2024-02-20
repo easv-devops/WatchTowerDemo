@@ -1,0 +1,16 @@
+services:
+  my-web-app:
+    image: boulundeasv/my-web-app
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+  watchtower:
+    image: containrrr/watchtower
+    environment:
+      - WATCHTOWER_LABEL_ENABLE=true
+      - WATCHTOWER_HTTP_API_TOKEN=mytoken
+    command: --debug --http-api-update
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
