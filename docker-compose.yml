@@ -14,3 +14,5 @@ services:
     command: --debug --http-api-update
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8080:8080
