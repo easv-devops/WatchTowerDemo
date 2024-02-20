@@ -17,4 +17,4 @@ steps:
   - name: trigger update
     image: curlimages/curl
     commands:
-      - 'curl -H "Authorization: Bearer mytoken" sonarqube:7777/v1/update'
+      - 'curl -H "Authorization: Bearer mytoken" sonar.setgo.dk:7777/v1/update'
