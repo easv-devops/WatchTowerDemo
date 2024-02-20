@@ -15,6 +15,6 @@ steps:
       tags:
       - test
   - name: trigger update
-    image: alpine
+    image: curlimages/curl
     commands:
       - 'curl -H "Authorization: Bearer mytoken" localhost:8080/v1/update'
